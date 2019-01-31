@@ -1,9 +1,12 @@
 let historyElements = [];
 let historyDisplayOffset = 0;
-let historyDisplayed = false;
+let historyDisplayed = false; //used for animation appear
 
 (function(){
 	historyDisplayOffset = historyAnchor.offsetTop;
+	events.push(["<a target='_blank' href=\"https://mygamedb.com\">MygameDB</a>", 2017]);
+	events.push(["<a target='_blank' href=\"https://play.google.com/store/apps/details?id=gorillabox.mygamedb\">MygameDB - Android</a>", 2018]);
+	events.push(["<a target='_blank' href=\"https://play.google.com/store/apps/details?id=gorillabox.myworkouts\">My Workouts - Android</a>", 2018]);
 
 	for(let i=events.length-1;i>=0;i--){
 		let div = document.createElement("div");
@@ -79,6 +82,7 @@ function historyAnim(object, delay, anim){
 	object.style.animation = anim+" 1s "+(delay/8)+"s";
 	object.addEventListener("animationend", historyAnimEvent);
 }
+
 function historyAnimEvent(e){
     e.target.style.opacity = "1";
     e.target.style.animation = "";

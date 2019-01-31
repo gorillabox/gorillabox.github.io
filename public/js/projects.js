@@ -1,41 +1,38 @@
 let projects = [];
 let projectsElement = [];
 let projectDisplayOffset = 0;
-let projectsDisplayed = false;
-let moreProjectsOpen = false;
+let projectsDisplayed = false;  //used for animation appear
+let moreProjectsOpen = false; //when click on the button "More projects"
 let projectDisplayerContainer;
 
 (function(){
     projectDisplayerContainer = document.getElementById("projectDisplayerContainer");
-    events.push(["<a target='_blank' href=\"https://mygamedb.com\">MygameDB</a>", 2017]);
-    events.push(["<a target='_blank' href=\"https://play.google.com/store/apps/details?id=gorillabox.mygamedb\">MygameDB - Android</a>", 2018]);
-    events.push(["<a target='_blank' href=\"https://play.google.com/store/apps/details?id=gorillabox.myworkouts\">My Workouts - Android</a>", 2018]);
-
 	projectDisplayOffset = projectsAnchor.offsetTop;
 
-	let name;
-	let logo;
-	let description;
-	let languages;
-	let links;
-	let backgroundColor;
+	addProject("MyWorkouts",
+			"/public/images/projects/myworkouts.png",
+			"MyWorkouts est une application android de gestion d'entrainement de musculation, de crossfit ainsi que de street workout.<br /><br />" +
+						"Grâce au minuteur intégré qui se lance à la fin d'une série vous ne louperez plus jamais vos pauses ! " +
+						"Chaque entrainement effectué pourra être ajouté à l'historique pour visualiser vos améliorations depuis le début.",
+			["JAVA"],
+			[["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.myworkouts"]],
+			"0bcd62",
+			["Montoya Damien"]);
 
-    name = "MyWorkouts";
-    logo = "/public/images/projects/myworkouts.png";
-    description = "MyWorkouts est une application android de gestion d'entrainement de musculation, de crossfit ainsi que de street workout.<br /><br />Grâce au minuteur intégré qui se lance à la fin d'une série vous ne louperez plus jamais vos pauses ! Chaque entrainement effectué sera ajouté à l'historique pour visualiser vos améliorations depuis le début.";
-    languages = ["JAVA"];
-    links = [["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.myworkouts"]];
-    backgroundColor = "0bcd62";
-    projects.push(new Project(name, logo, description, languages, links, backgroundColor));
-
-	name = "MyGameDB";
-	logo = "/public/images/projects/mygamedb.png";
-	description = "MyGameDB est un site web de gestion de collection de jeux vidéo et de consoles administré par moi-même. <br /><br />MyGameDB vous permet d'ajouter les consoles et jeux vidéos que vous possédez, d'indiquer leur statut et bien d'autres options.<br /><br />Vous pourrez également ajouter des jeux à votre wishlist dans le but d'être notifié si un membre possède le jeu en plusieurs exemplaires. Idéal pour faire des échanges.";
-	languages = ["HTML", "CSS", "PHP", "SQL", "JavaScript", "JQuery"];
-	links = [["Site web", "https://mygamedb.com"], ["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.mygamedb"]];
-	backgroundColor = "1d3e5c";
-	projects.push(new Project(name, logo, description, languages, links, backgroundColor));
-
+	addProject("MyGameDB",
+			"/public/images/projects/mygamedb.png",
+			"MyGameDB est un site web de gestion de collection de jeux vidéo et de consoles. <br /><br />" +
+						"MyGameDB vous permet d'ajouter les consoles et jeux vidéos que vous possédez, d'indiquer leur statut et bien d'autres options.<br /><br />" +
+						"Vous pourrez également ajouter des jeux à votre wishlist dans le but d'être notifié si un membre possède le jeu en plusieurs exemplaires. Idéal pour faire des échanges.<br /><br />"+
+						"Un système de galerie a également été mis en place pour vous permettre d'ajouter des photos de votre collection.",
+			["HTML", "CSS", "PHP", "SQL", "JavaScript", "jQuery"],
+			[["Site web", "https://mygamedb.com"],
+					["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.mygamedb"],
+					["Facebook", "https://www.facebook.com/MyGameDB/"],
+					["Twitter", "https://twitter.com/MyGameDB"]
+				],
+			"1d3e5c",
+			["Montoya Damien"]);
 
 	let i = 0;
 	while(i<projects.length && i < 3){
@@ -90,6 +87,10 @@ let projectDisplayerContainer;
 	}
 })();
 
+function addProject(name, logo, description, languages, links, backgroundColor, members){
+	projects.push(new Project(name, logo, description, languages, links, backgroundColor, members));
+}
+
 function setAnimListenerOpen(object, delay){
 	object.style.animation = "projetPop 0.6s "+(delay/8)+"s";
 	object.addEventListener("animationend", animationOpenEvent);
@@ -112,7 +113,6 @@ function setAnimListenerClose(object, delay){
 	object.style.animation = "projetUnpop 0.6s "+(delay/8)+"s";
 	object.addEventListener("animationend", animationCloseEvent);
 }
-
 
 function buildProject(i){
 	let div = document.createElement("div");
@@ -188,12 +188,17 @@ function buildProjectPopup(projectNumber){
 	let descriptionContainer = document.createElement("div");
 	descriptionContainer.id = "descriptionContainer";
 	descriptionContainer.innerHTML = projects[projectNumber].description;
-	let linksDescription = descriptionContainer.getElementsByTagName("a");
-	for(let i=0;i<linksDescription.length;i++){
-		linksDescription[i].addEventListener("click", function(e){
-			e.preventDefault();
-			closePopup();
-		});
+	descriptionContainer.innerHTML += "<br /><br />";
+	if(projects[projectNumber].members.length === 1){
+		descriptionContainer.innerHTML += "Membre ayant participé au projet : "+projects[projectNumber].members[0];
+	}else{
+		descriptionContainer.innerHTML += "Membre ayant participé au projet : ";
+		for(let i=0;i<projects[projectNumber].members.length;i++){
+			descriptionContainer.innerHTML += projects[projectNumber].members[i];
+			if(i !== (projects[projectNumber].members.length-1)){
+				descriptionContainer.innerHTML += ", ";
+			}
+		}
 	}
     let languagesLine = document.createElement("div");
     languagesLine.id = "projectDisplayerLanguages";
@@ -219,7 +224,7 @@ function buildProjectPopup(projectNumber){
 	projectDisplayerContent.appendChild(links);
 }
 
-function Project(name, logo, description, languages, links, backgroundColor){
+function Project(name, logo, description, languages, links, backgroundColor, members){
 	this.name = name;
 	this.description = description;
 	//development languages array
@@ -228,4 +233,5 @@ function Project(name, logo, description, languages, links, backgroundColor){
 	//link is an array with name to display and the linkg
 	this.links = links;
 	this.backgroundColor = backgroundColor;
+	this.members = members;
 }

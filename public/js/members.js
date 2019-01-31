@@ -1,13 +1,20 @@
 let members = [];
 let membersElement = [];
 let memberDisplayOffset = 0;
-let membersDisplayed = false;
+let membersDisplayed = false; //used for animation appear
 
 (function(){
 	memberDisplayOffset = membersAnchor.offsetTop;
 
-	addMember("Damien Montoya", "/public/images/members/damien.jpg", "Développeur et fondateur de GorillaBox", "https://montoyadamien.github.io/");
-	addMember("François Rigaut", "/public/images/members/francois.jpg", "Développeur", "https://www.linkedin.com/in/fran%C3%A7ois-rigaut/");
+	addMember("Montoya Damien",
+            "/public/images/members/damien.jpg",
+            "Développeur et fondateur de GorillaBox",
+            "https://montoyadamien.github.io/");
+
+	addMember("Rigaut François",
+            "/public/images/members/francois.jpg",
+            "Développeur",
+            "https://www.linkedin.com/in/fran%C3%A7ois-rigaut/");
 
 	for(let i=0;i<members.length;i++){
 		buildMember(i);
