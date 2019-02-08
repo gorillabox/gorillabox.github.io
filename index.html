@@ -1,76 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<title>GorillaBox</title>
-	<meta charset="utf-8" />
-    <meta name="theme-color" content="#0f764b">
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="GorillaBox" />
-	<meta property="og:image" content="/images/logo/favicon.png" />
-	<meta property="og:description" content="GorillaBox - Portfolio" />
-	<link rel="stylesheet" type="text/css" href="/public/style/style.css">
-	<link rel="stylesheet" media="screen and (max-width: 800px)" href="/public/style/style800.css" />
-	<link rel="stylesheet" media="screen and (max-width: 450px)" href="/public/style/style450.css" />
-	<link rel="icon" type="image/ico" href="/public/images/logo/favicon.ico" />
-	<link rel="icon" type="image/png" sizes="192x192" href="/public/images/logo/favicon.png" />
-</head>
-<body>
-    <nav class="translateHide">
-        <div id="navButton">
-            <div id="bar1" class="bar"></div>
-            <div id="bar2" class="bar"></div>
-            <div id="bar3" class="bar"></div>
-        </div>
-        <div id="navContainer">
-            <a class="navItem" href="#banner">
-                Accueil
-            </a>
-            <a class="navItem" href="#projects">
-                Projets
-            </a>
-            <a class="navItem" href="#members">
-                Membres
-            </a>
-            <a class="navItem" href="#history">
-                Historique
-            </a>
-        </div>
-    </nav>
-    <div id="container">
-        <div id="scrollProgressContainer" class="untranslateProgressBar">
-            <div id="scrollProgress"></div>
-        </div>
-        <div id="subContainer">
-            <div id="bannerContainer">
-                <div id="banner">
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <div class="bannerImg"></div>
-                    <h1>GorillaBox</h1>
+    <head>
+        <title>GorillaBox</title>
+        <meta property="og:title" content="GorillaBox" />
+
+        <meta name="description" content="GorillaBox - Portfolio">
+        <meta property="og:description" content="GorillaBox - Portfolio" />
+        <meta property="twitter:description" content="GorillaBox - Portfolio" />
+
+        <meta property="og:image" content="https://gorillabox.github.io/public/images/logo/favicon.png" />
+        <meta property="twitter:image" content="https://gorillabox.github.io/public/images/logo/favicon.png" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:domain" content="https://gorillabox.github.io/">
+
+        <meta name="twitter:creator" content="@_gorillapp">
+        <meta name="author" content="Damien Montoya"/>
+
+        <meta charset="utf-8" />
+        <meta name="theme-color" content="#0f764b">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" href="/public/style/style.css">
+        <link rel="stylesheet" media="screen and (max-width: 800px)" href="/public/style/style800.css" />
+        <link rel="stylesheet" media="screen and (max-width: 450px)" href="/public/style/style450.css" />
+        <link rel="icon" type="image/ico" href="/public/images/logo/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/public/images/logo/favicon.png" />
+    </head>
+    <body>
+        <nav class="translateHide">
+            <div id="navButton">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <div id="navContainer">
+                <a class="navItem" href="#banner">
+                    Accueil
+                </a>
+                <a class="navItem" href="#projects">
+                    Projets
+                </a>
+                <a class="navItem" href="#members">
+                    Membres
+                </a>
+                <a class="navItem" href="#history">
+                    Historique
+                </a>
+            </div>
+        </nav>
+        <div id="container">
+            <div id="scrollProgressContainer" class="untranslateProgressBar">
+                <div id="scrollProgress"></div>
+            </div>
+            <div id="subContainer">
+                <div id="bannerContainer">
+                    <div id="banner">
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <div class="bannerImg"></div>
+                        <h1>GorillaBox</h1>
+                    </div>
                 </div>
+                <div id="projects"></div>
+                <div id="members"></div>
+                <div id="history"></div>
             </div>
-            <div id="projects"></div>
-            <div id="members"></div>
-            <div id="history"></div>
         </div>
-    </div>
-    <div id="projectDisplayerContainer" class="height0">
-        <div id="projectDisplayer" class="leftSlide">
-            <div id="arrowContainer">
-                <div></div>
+        <div id="projectDisplayerContainer" class="height0">
+            <div id="projectDisplayer" class="leftSlide">
+                <div id="arrowContainer">
+                    <div></div>
+                </div>
+                <div id="projectDisplayerContent"></div>
             </div>
-            <div id="projectDisplayerContent"></div>
         </div>
-    </div>
-    <script type="text/javascript" src="/public/js/nav.js"></script>
-    <script type="text/javascript" src="/public/js/banner.js"></script>
-    <script type="text/javascript" src="/public/js/projects.js"></script>
-    <script type="text/javascript" src="/public/js/members.js"></script>
-    <script type="text/javascript" src="/public/js/history.js"></script>
-    <script type="text/javascript" src="/public/js/scroll.js"></script>
-</body>
+        <script type="text/javascript" src="/public/js/nav.js"></script>
+        <script type="text/javascript" src="/public/js/banner.js"></script>
+        <script type="text/javascript" src="/public/js/projects.js"></script>
+        <script type="text/javascript" src="/public/js/members.js"></script>
+        <script type="text/javascript" src="/public/js/history.js"></script>
+        <script type="text/javascript" src="/public/js/scroll.js"></script>
+    </body>
 </html>
