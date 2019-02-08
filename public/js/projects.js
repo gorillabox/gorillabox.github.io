@@ -15,7 +15,7 @@ let projectDisplayerContainer;
 						"Grâce au minuteur intégré qui se lance à la fin d'une série vous ne louperez plus jamais vos pauses ! " +
 						"Chaque entrainement effectué pourra être ajouté à l'historique pour visualiser vos améliorations depuis le début.",
 			["JAVA"],
-			[["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.myworkouts"]],
+			[["Site web", "/projects/myworkouts/index.html"], ["Google Play", "https://play.google.com/store/apps/details?id=gorillabox.myworkouts"]],
 			"0bcd62",
 			["Montoya Damien"]);
 
