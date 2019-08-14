@@ -22,6 +22,7 @@ let bannerImg1, bannerImg2, bannerImg3, bannerImg4, bannerImg5, bannerImg6, bann
 			bannerImg6.style.backgroundPosition = "calc(50% + "+(-((e.clientX-(screenWidth/2))*0.06))+"px) bottom";
 			//bannerImg6.style.transform = "rotateX("+(-(e.clientY-(screenHeight/2))*0.002)+"deg)";
 			bannerImg7.style.backgroundPosition = "calc(50% + "+(-((e.clientX-(screenWidth/2))*0.12))+"px) bottom";
+			projectsAnchor.style.backgroundPosition = "calc(50% + "+(-((e.clientX-(screenWidth/2))*0.1))+"px) bottom";
 		}
 	});
 })();

@@ -1,0 +1,10 @@
+#popup-left-container{
+    width: 800px;
+    max-width: 100%;
+}
+#popup-links-container, #popup-members-container{
+    justify-content: center;
+}
+#popup-right-container{
+    min-height: initial;
+}

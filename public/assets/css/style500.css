@@ -1,0 +1,23 @@
+#popup-sub-container{
+    padding : 0;
+}
+#popup-text{
+    font-size: 15pt;
+}
+#popup-title{
+    font-size: 25pt;
+}
+.popup-language-container{
+    width: 120px;
+    height: 120px;
+}
+.popup-language-picture-container{
+    height: 90px;
+}
+#cross-container{
+    top : 2%;
+    left: 2%;
+}
+#projects{
+    padding: 20px 25px;
+}

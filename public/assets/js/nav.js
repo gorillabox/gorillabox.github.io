@@ -7,6 +7,7 @@ let container;
 let arrowContainer;
 
 let projectsAnchor;
+let membersAnchor;
 
 (function(){
 	nav = document.getElementsByTagName("nav")[0];
@@ -15,7 +16,9 @@ let projectsAnchor;
 	container = document.getElementById("container");
 	bars = document.getElementsByClassName("bar");
 	arrowContainer = document.getElementById("arrowContainer");
+
     projectsAnchor = document.getElementById("projects");
+    membersAnchor = document.getElementById("members");
 
 	navButtonOpenClose.addEventListener("click", function(){
 		if(nav.classList.contains("translateHide"))
@@ -59,6 +62,8 @@ function clickOnNavItem(){
                 scrollToTop();
             else if(i===1)
                 scrollTo(projectsAnchor);
+            else if(i===2)
+                scrollTo(membersAnchor);
             closeMenu(true);
         });
     }
