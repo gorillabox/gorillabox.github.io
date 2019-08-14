@@ -21,16 +21,15 @@
         <meta name="theme-color" content="#0f764b">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" type="text/css" href="/public/style/style.css">
-        <link rel="stylesheet" media="screen and (max-width: 800px)" href="/public/style/style800.css" />
-        <link rel="stylesheet" media="screen and (max-width: 450px)" href="/public/style/style450.css" />
-        <link rel="icon" type="image/ico" href="/public/images/logo/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/public/images/logo/favicon.png" />
+        <link rel="stylesheet" type="text/css" href="/public/asset/css/style.css">
+
+        <link rel="icon" type="image/ico" href="/public/asset/images/logo/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/public/asset/images/logo/favicon.png" />
     </head>
     <body>
         <img style="display: none" src="https://gorillabox.github.io/public/images/logo/logoText.png"/>
         <nav class="translateHide">
-            <div id="navButton">
+            <div id="nav-button-open-close">
                 <div id="bar1" class="bar"></div>
                 <div id="bar2" class="bar"></div>
                 <div id="bar3" class="bar"></div>
@@ -42,18 +41,9 @@
                 <a class="navItem" href="#projects">
                     Projets
                 </a>
-                <a class="navItem" href="#members">
-                    Membres
-                </a>
-                <a class="navItem" href="#history">
-                    Historique
-                </a>
             </div>
         </nav>
         <div id="container">
-            <div id="scrollProgressContainer" class="untranslateProgressBar">
-                <div id="scrollProgress"></div>
-            </div>
             <div id="subContainer">
                 <div id="bannerContainer">
                     <div id="banner">
@@ -67,24 +57,15 @@
                         <h1>GorillaBox</h1>
                     </div>
                 </div>
-                <div id="projects"></div>
-                <div id="members"></div>
-                <div id="history"></div>
-            </div>
-        </div>
-        <div id="projectDisplayerContainer" class="height0">
-            <div id="projectDisplayer" class="leftSlide">
-                <div id="arrowContainer">
-                    <div></div>
+                <div id="projects">
+                    <div id="projects-container"></div>
                 </div>
-                <div id="projectDisplayerContent"></div>
             </div>
         </div>
-        <script type="text/javascript" src="/public/js/nav.js"></script>
-        <script type="text/javascript" src="/public/js/banner.js"></script>
-        <script type="text/javascript" src="/public/js/projects.js"></script>
-        <script type="text/javascript" src="/public/js/members.js"></script>
-        <script type="text/javascript" src="/public/js/history.js"></script>
-        <script type="text/javascript" src="/public/js/scroll.js"></script>
+        <script type="text/javascript" src="/public/asset/js/classes.js"></script>
+        <script type="text/javascript" src="/public/asset/js/nav.js"></script>
+        <script type="text/javascript" src="/public/asset/js/banner.js"></script>
+        <script type="text/javascript" src="/public/asset/js/members.js"></script>
+        <script type="text/javascript" src="/public/asset/js/projects.js"></script>
     </body>
 </html>
