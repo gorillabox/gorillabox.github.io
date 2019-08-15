@@ -45,17 +45,12 @@ let projectsLoaded = false;
                     ],
                     "2017 - 2018"));
 
-    buildProjects();
-
+    projects.forEach(buildProject)
     projectsScroll();
     window.addEventListener("scroll", function(){
         projectsScroll();
     });
 })();
-
-function buildProjects(){
-    projects.forEach(buildProject)
-}
 
 function buildProject(project){
     let item = document.createElement("div");
@@ -183,6 +178,27 @@ function clickOnProject(project){
     textContainer.id = "popup-text";
     textContainer.innerHTML = project.description;
     rightContainer.appendChild(textContainer);
+
+    let languagesContainer = document.createElement("div");
+    languagesContainer.id = "popup-languages-container";
+    for(let i = 0;i<project.languages.length;i++){
+        console.log(project.languages)
+        let language = document.createElement("div");
+        language.classList.add("popup-language-container");
+        let pictureContainer = document.createElement("div");
+        pictureContainer.classList.add("popup-language-picture-container");
+        let picture = document.createElement("img");
+        picture.src = "/public/assets/images/icons/languages/"+project.languages[i].logo;
+        pictureContainer.appendChild(picture);
+        let languageName = document.createElement("div");
+        languageName.classList.add("popup-language-name");
+        languageName.appendChild(document.createTextNode(project.languages[i].name));
+        language.appendChild(pictureContainer);
+        language.appendChild(languageName);
+        languagesContainer.appendChild(language);
+    }
+    rightContainer.appendChild(languagesContainer);
+
     subContainer.appendChild(rightContainer);
 
     projectSubContainer.appendChild(subContainer);
@@ -197,15 +213,15 @@ function clickOnProject(project){
             document.body.classList.remove("overflow-hidden");
             projectContainer.remove();
         });
-        projectContainer.style.animation = "projectHide 0.3s linear forwards";
+        projectContainer.style.animation = "projectHide 0.4s cubic-bezier(0.45, 0.57, 0.28, 0.86) forwards";
     });
     document.body.appendChild(projectContainer);
-    projectContainer.style.animation = "projectShow 0.2s linear forwards";
+    projectContainer.style.animation = "projectShow 0.4s cubic-bezier(0.45, 0.57, 0.28, 0.86) forwards";
 }
 
 function projectsScroll(){
     if(window.pageYOffset >= (projectsDisplayOffset-(window.innerHeight/2)) && projectsLoaded === false) {
         projectsLoaded = true;
-        displayOneAfterOther(document.querySelectorAll(".project-item"), "opacityShow 0.4s linear forwards", 0.5, true, false);
+        displayOneAfterOther(document.querySelectorAll(".project-item"), "opacityShow 0.4s linear forwards", 0.4, true, false);
     }
 }

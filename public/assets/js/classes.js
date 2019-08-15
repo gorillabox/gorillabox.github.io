@@ -39,7 +39,8 @@ const LANGUAGES_ENUM = {
     PHP: new Language("PHP", "php.png"),
     MYSQL: new Language("MySQL", "mysql.png"),
     JAVASCRIPT : new Language("JavaScript", "javascript.png"),
-    ANDROID : new Language("Android", "android.png")
+    ANDROID : new Language("Android", "android.png"),
+    JQUERY : new Language("jQuery", "jquery.png")
 };
 
 const LINKS_LOGO_ENUM = {
