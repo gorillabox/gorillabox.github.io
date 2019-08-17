@@ -32,7 +32,8 @@ let projectsLoaded = false;
 
     description =
             "MyWorkouts est une application android de gestion d'entrainement de musculation, de crossfit ainsi que de street workout.<br /><br />" +
-            "L'application m'a permis de développer un minuteur lié à un système de notifications ainsi qu'un historique pour les entraînements.";
+            "L'application permet d'avoir accès à un minuteur qui se déclenche automatiquement une fois une série terminée.<br /><br />"+
+            "Une fois un entraînement terminé, celui-ci peut être ajouté à l'historique pour étudier les évolutions des séances.;
     projects.push(
             new Project("MyWorkouts", "myworkouts.png", description,
                     [LANGUAGES_ENUM.JAVA, LANGUAGES_ENUM.ANDROID],
