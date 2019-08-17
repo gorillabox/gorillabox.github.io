@@ -42,7 +42,7 @@ let rounds;
     clickOnNavItem();
 
     scrollPoints();
-    window.addEventListener("scroll", function(e){
+    window.addEventListener("scroll", function(){
         scrollPoints();
     });
 })();
@@ -84,7 +84,7 @@ function clickOnNavItem(){
         });
     }
     for(let i=0;i<rounds.length;i++){
-        rounds[i].addEventListener("click", function(e){
+        rounds[i].addEventListener("click", function(){
            redirectNav(i);
             closeMenu(true);
         });
@@ -96,7 +96,7 @@ function clickOnNavItem(){
         });
         rounds[i].addEventListener("mouseout", function(){
             rounds[i].style.transform = value;
-            setTimeout(function(e){
+            setTimeout(function(){
                 rounds[i].style.transition = "0.1s";
             }, 200);
         });

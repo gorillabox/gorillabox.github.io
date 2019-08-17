@@ -33,7 +33,7 @@ let projectsLoaded = false;
     description =
             "MyWorkouts est une application android de gestion d'entrainement de musculation, de crossfit ainsi que de street workout.<br /><br />" +
             "L'application permet d'avoir accès à un minuteur qui se déclenche automatiquement une fois une série terminée.<br /><br />"+
-            "Une fois un entraînement terminé, celui-ci peut être ajouté à l'historique pour étudier les évolutions des séances.;
+            "Une fois un entraînement terminé, celui-ci peut être ajouté à l'historique pour étudier les évolutions des séances.";
     projects.push(
             new Project("MyWorkouts", "myworkouts.png", description,
                     [LANGUAGES_ENUM.JAVA, LANGUAGES_ENUM.ANDROID],
@@ -46,7 +46,7 @@ let projectsLoaded = false;
                     ],
                     "2017 - 2018"));
 
-    projects.forEach(buildProject)
+    projects.forEach(buildProject);
     projectsScroll();
     window.addEventListener("scroll", function(){
         projectsScroll();
@@ -183,7 +183,7 @@ function clickOnProject(project){
     let languagesContainer = document.createElement("div");
     languagesContainer.id = "popup-languages-container";
     for(let i = 0;i<project.languages.length;i++){
-        console.log(project.languages)
+        console.log(project.languages);
         let language = document.createElement("div");
         language.classList.add("popup-language-container");
         let pictureContainer = document.createElement("div");
