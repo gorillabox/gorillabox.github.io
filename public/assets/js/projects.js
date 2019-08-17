@@ -183,7 +183,6 @@ function clickOnProject(project){
     let languagesContainer = document.createElement("div");
     languagesContainer.id = "popup-languages-container";
     for(let i = 0;i<project.languages.length;i++){
-        console.log(project.languages);
         let language = document.createElement("div");
         language.classList.add("popup-language-container");
         let pictureContainer = document.createElement("div");
