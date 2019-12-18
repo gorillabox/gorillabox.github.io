@@ -127,7 +127,6 @@ nav{
     background-size: cover;
     background-position: center bottom;
     position: absolute;
-    transition: 0.1s linear background-position;
 }
 #banner .bannerImg:nth-child(7){
     background-image: url(../images/banner/first.png);
@@ -196,7 +195,6 @@ nav{
     background-size: cover;
     background-position: center bottom;
     background-image: url(../images/banner/project.png);
-    transition: 0.1s linear background-position;
 }
 #projects-container{
     display: flex;
@@ -354,7 +352,7 @@ nav{
         transform: translate(0, 0);
     }
     100%{
-        transform: translate(-100%, 0);
+        transform: translate(0, 100%);
     }
 }
 .project-popup-sub-container{
