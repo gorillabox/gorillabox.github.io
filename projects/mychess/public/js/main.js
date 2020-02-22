@@ -1065,7 +1065,7 @@ function displayTextAnimation(text){
 
 function createAudio(){
     let audio = document.createElement("audio");
-    audio.src = "/public/sounds/tile_movement.mp3";
+    audio.src = "./public/sounds/tile_movement.mp3";
     audio.addEventListener("ended", function(e){
         audio.remove();
     });
@@ -1091,7 +1091,7 @@ function endGame(){
 
 function getTimeGame(){
     let date = new Date(null);
-    date.setSeconds(time)
+    date.setSeconds(time);
     let result = date.toISOString().substr(11, 8);
     result = result.split(":");
     let finalString = "";
