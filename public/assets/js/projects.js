@@ -27,8 +27,25 @@ let projectsLoaded = false;
                 [
                             members[0]
                         ],
-            "2017 - ?"
+            "2017 - Aujourd'hui"
             ));
+
+    description =
+            "MyChess est un jeu d'échec à deux joueurs jouable directement via un navigateur web <br /><br />" +
+            "MyChess ne propose pas de jouer contre un ordinateur, il faut donc être deux pour profiter pleinement du jeu.";
+
+    projects.push(new Project("MyChess", "mychess.png", description,
+            [LANGUAGES_ENUM.JAVASCRIPT],
+            [
+                new Link("Site web", LINKS_LOGO_ENUM.WEBSITE, "/projects/mychess")
+            ],
+            "16a085",
+            [
+                members[0],
+                members[1]
+            ],
+            "2019"
+    ));
 
     description =
             "MyWorkouts est une application android de gestion d'entrainement de musculation, de crossfit ainsi que de street workout.<br /><br />" +
@@ -44,7 +61,7 @@ let projectsLoaded = false;
                     [
                             members[0]
                     ],
-                    "2017 - 2018"));
+                    "2017 - Aujourd'hui"));
 
     projects.forEach(buildProject);
     projectsScroll();
@@ -61,7 +78,7 @@ function buildProject(project){
     picture.classList.add("project-item-picture-container");
     let img = document.createElement("img");
     img.classList.add("project-item-picture");
-    img.alt = "logo";
+    img.alt = project.name;
     img.src = "/public/assets/images/projects/"+project.logo;
     picture.appendChild(img);
     item.appendChild(picture);
@@ -79,7 +96,7 @@ function buildProject(project){
        let picture = document.createElement("div");
        picture.classList.add("project-item-member-picture-container");
        let img = document.createElement("img");
-       img.alt= "picture";
+       img.alt= member.name;
        img.src = "/public/assets/images/members/"+member.picture;
        picture.appendChild(img);
        memberContainerSub.appendChild(picture);
@@ -126,6 +143,7 @@ function clickOnProject(project){
     pictureContainer.id = "popup-picture-container";
     pictureContainer.style.backgroundColor = "#"+project.backgroundColor;
     let picture = document.createElement("img");
+    picture.alt = project.name;
     picture.src = "/public/assets/images/projects/"+project.logo;
     pictureContainer.appendChild(picture);
     leftContainer.appendChild(pictureContainer);
@@ -137,6 +155,7 @@ function clickOnProject(project){
         link.href = project.links[i].link;
         link.target = "_blank";
         let pic = document.createElement("img");
+        pic.alt = project.links[i].name;
         pic.classList.add("popup-link-picture");
         pic.src = "/public/assets/images/icons/links/"+project.links[i].logo;
         link.appendChild(pic);
@@ -156,6 +175,7 @@ function clickOnProject(project){
         let subPic = document.createElement("div");
         subPic.classList.add("popup-member-picture-container");
         let pic = document.createElement("img");
+        pic.alt = project.members[i].name;
         pic.classList.add("popup-member-picture");
         pic.src = "/public/assets/images/members/"+project.members[i].picture;
         subPic.appendChild(pic);
@@ -188,6 +208,7 @@ function clickOnProject(project){
         let pictureContainer = document.createElement("div");
         pictureContainer.classList.add("popup-language-picture-container");
         let picture = document.createElement("img");
+        picture.alt = project.languages[i].name;
         picture.src = "/public/assets/images/icons/languages/"+project.languages[i].logo;
         pictureContainer.appendChild(picture);
         let languageName = document.createElement("div");

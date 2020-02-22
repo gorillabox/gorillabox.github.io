@@ -14,6 +14,10 @@ let membersLoaded = false;
         new Link("LinkedIn", LINKS_LOGO_ENUM.LINKEDIN, "https://www.linkedin.com/in/fran%C3%A7ois-rigaut/")
     ]));
 
+    members.push(new Member("Maxime Leras", "maxime.jpg", [
+        new Link("LinkedIn", LINKS_LOGO_ENUM.LINKEDIN, "https://www.linkedin.com/in/maxime-leras/")
+    ]));
+
     membersContainer = document.getElementById("members-container");
     membersDisplayOffset = membersAnchor.offsetTop;
 

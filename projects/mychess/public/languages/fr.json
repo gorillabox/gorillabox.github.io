@@ -1,0 +1,14 @@
+{
+    "WHITE_TURN" : "C'est aux blancs de jouer !",
+    "BLACK_TURN" : "C'est aux noirs de jouer !",
+    "KING_IN_CHECK" : "Roi en échec !",
+    "GAME_FINISHED" : "Partie terminée en",
+    "WHITE_WIN" : "Les blancs ont gagné !",
+    "BLACK_WIN" : "Les noirs ont gagné !",
+    "HOUR" : "heure",
+    "HOURS" : "heures",
+    "MINUTE" : "minute",
+    "MINUTES" : "minutes",
+    "SECOND" : "seconde",
+    "SECONDS" : "secondes"
+}
