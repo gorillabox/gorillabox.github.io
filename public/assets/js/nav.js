@@ -13,109 +13,75 @@ let membersAnchor;
 let sections;
 let rounds;
 
-(function(){
-	nav = document.getElementsByTagName("nav")[0];
-	navButtonOpenClose = document.getElementById("nav-button-open-close");
-	subContainer = document.getElementById("subContainer");
-	container = document.getElementById("container");
-	bars = document.getElementsByClassName("bar");
-	arrowContainer = document.getElementById("arrowContainer");
+const openMenu = () => {
+	nav.classList.remove('translateHide');
+	subContainer.classList.add('translateShow');
+	bars[0].id='bar1Open';
+	bars[1].id='bar2Open';
+	bars[2].id='bar3Open';
+	document.body.classList.add('overflowHidden');
+};
 
-    bannerAnchor = document.getElementById("banner");
-    projectsAnchor = document.getElementById("projects");
-    membersAnchor = document.getElementById("members");
+const closeMenu= () => {
+	nav.classList.add('translateHide');
+	subContainer.classList.remove('translateShow');
+	bars[0].id='bar1';
+	bars[1].id='bar2';
+	bars[2].id='bar3';
+    document.body.classList.remove('overflowHidden');
+};
 
-    sections = document.getElementsByClassName("section");
-    rounds = document.getElementsByClassName("round-item");
-
-	navButtonOpenClose.addEventListener("click", function(){
-		if(nav.classList.contains("translateHide"))
-			openMenu();
-		else
-			closeMenu(true);
-	});
-
-    container.addEventListener("click", function(){
-        closeMenu();
-	});
-
-    clickOnNavItem();
-
-    scrollPoints();
-    window.addEventListener("scroll", function(){
-        scrollPoints();
-    });
-})();
-
-function openMenu(){
-	nav.classList.remove("translateHide");
-	subContainer.classList.add("translateShow");
-	bars[0].id="bar1Open";
-	bars[1].id="bar2Open";
-	bars[2].id="bar3Open";
-	document.body.classList.add("overflowHidden");
-}
-
-function closeMenu(){
-	nav.classList.add("translateHide");
-	subContainer.classList.remove("translateShow");
-	bars[0].id="bar1";
-	bars[1].id="bar2";
-	bars[2].id="bar3";
-    document.body.classList.remove("overflowHidden");
-}
-
-function redirectNav(i){
+const redirectNav = (i) => {
     if(i===0)
         scrollTo(bannerAnchor);
     else if(i===1)
         scrollTo(projectsAnchor);
     else if(i===2)
         scrollTo(membersAnchor);
-}
+};
 
-function clickOnNavItem(){
-    let navItems = document.getElementsByClassName("navItem");
+const clickOnNavItem= () => {
+    let navItems = document.getElementsByClassName('navItem');
     for(let i=0;i<navItems.length;i++){
-        navItems[i].addEventListener("click", function(e){
+        navItems[i].addEventListener('click', (e) => {
             e.preventDefault();
             redirectNav(i);
             closeMenu(true);
         });
     }
     for(let i=0;i<rounds.length;i++){
-        rounds[i].addEventListener("click", function(){
+        rounds[i].addEventListener('click', () => {
            redirectNav(i);
             closeMenu(true);
         });
         let value;
-        rounds[i].addEventListener("mouseover", function(){
+        rounds[i].addEventListener('mouseover', () => {
             value = rounds[i].style.transform;
-            rounds[i].style.transition = "0.2s";
-            rounds[i].style.transform = "scale(1)";
+            rounds[i].style.transition = '0.2s';
+            rounds[i].style.transform = 'scale(1)';
         });
-        rounds[i].addEventListener("mouseout", function(){
+        rounds[i].addEventListener('mouseout', () => {
             rounds[i].style.transform = value;
-            setTimeout(function(){
-                rounds[i].style.transition = "0.1s";
+            setTimeout(() => {
+                rounds[i].style.transition = '0.1s';
             }, 200);
         });
     }
-}
+};
 
-function scrollTo(element){
+const scrollTo = (element) => {
     window.scroll({
         behavior: 'smooth',
         top: element.offsetTop
     });
-}
+};
 
-function scrollPoints(){
+const scrollPoints= () => {
     for(let i=0;i<rounds.length;i++) {
-        if ((window.pageYOffset + window.innerHeight) > sections[i].offsetTop
+        if ((window.scrollY + window.innerHeight) > sections[i].offsetTop
                 &&
-                (window.pageYOffset) < (sections[i].offsetTop + sections[i].clientHeight)) {
-            let windowMiddle = window.pageYOffset + window.innerHeight / 2;
+                (window.scrollY) < (sections[i].offsetTop + sections[i].clientHeight)) {
+            let windowMiddle = window.scrollY + window.innerHeight / 2;
             let itemMiddle = sections[i].offsetTop + sections[i].clientHeight / 2;
             let result;
             if (windowMiddle < itemMiddle) {
@@ -128,9 +94,43 @@ function scrollPoints(){
                 result = 0.5;
             else if (result > 1)
                 result = 1;
-            rounds[i].style.transform = "scale(" + result + ")";
+            rounds[i].style.transform = 'scale(' + result + ')';
         } else {
-            rounds[i].style.transform = "scale(0.5)";
+            rounds[i].style.transform = 'scale(0.5)';
         }
     }
-}
+};
+
+(() => {
+    nav = document.getElementsByTagName('nav')[0];
+    navButtonOpenClose = document.getElementById('nav-button-open-close');
+    subContainer = document.getElementById('subContainer');
+    container = document.getElementById('container');
+    bars = document.getElementsByClassName('bar');
+    arrowContainer = document.getElementById('arrowContainer');
+
+    bannerAnchor = document.getElementById('banner');
+    projectsAnchor = document.getElementById('projects');
+    membersAnchor = document.getElementById('members');
+
+    sections = document.getElementsByClassName('section');
+    rounds = document.getElementsByClassName('round-item');
+
+    navButtonOpenClose.addEventListener('click', () => {
+        if(nav.classList.contains('translateHide'))
+            openMenu();
+        else
+            closeMenu(true);
+    });
+
+    container.addEventListener('click', () => {
+        closeMenu();
+    });
+
+    clickOnNavItem();
+
+    scrollPoints();
+    window.addEventListener('scroll', () => {
+        scrollPoints();
+    });
+})();

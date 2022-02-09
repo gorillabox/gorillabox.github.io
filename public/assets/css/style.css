@@ -423,7 +423,7 @@ nav{
 #popup-links-container{
     position: relative;
     z-index: 2;
-    box-shadow: 0 1px 10px 2px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 #popup-links-container, #popup-members-container{
     display: flex;
@@ -612,6 +612,8 @@ nav{
     justify-content: center;
     align-items: center;
     height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .popup-language-name{
     height: 30px;

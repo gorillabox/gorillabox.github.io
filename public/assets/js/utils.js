@@ -1,4 +1,4 @@
-function displayOneAfterOther(array, animationName, delayBetween, firstDelay, firstDelayDifferent){
+const displayOneAfterOther = (array, animationName, delayBetween, firstDelay, firstDelayDifferent) => {
     let totalDelay = 0;
     if(firstDelay){
         if(firstDelayDifferent !== false)
@@ -11,4 +11,4 @@ function displayOneAfterOther(array, animationName, delayBetween, firstDelay, fi
         array[i].style.animation = animationName + " " + totalDelay + "s";
         totalDelay += delayBetween;
     }
-}
+};
